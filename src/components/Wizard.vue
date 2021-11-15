@@ -5,6 +5,7 @@
       <FirstStep v-if="stepNumber === 1" @update="updateForm"></FirstStep>
       <ContactForm v-if="stepNumber === 2" @update="updateForm"></ContactForm>
       <BirthdayForm v-if="stepNumber === 3" @update="updateForm"></BirthdayForm>
+      <Result v-if="stepNumber === 4" :form="form"></Result>
 
       <div class="button-group">
         <button @click="backStep" v-show="stepNumber !== 1">まえの質問へ</button>
@@ -24,13 +25,15 @@
 import FirstStep from '@/components/Steps/FirstStep'
 import ContactForm from '@/components/Steps/ContactForm'
 import BirthdayForm from '@/components/Steps/BirthdayForm'
+import Result from '@/components/Steps/Result'
 
 export default {
   name: 'Wizard',
   components: {
     FirstStep,
     ContactForm,
-    BirthdayForm
+    BirthdayForm,
+    Result
   },
   data() {
     return {
