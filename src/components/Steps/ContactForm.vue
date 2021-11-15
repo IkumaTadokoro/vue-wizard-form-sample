@@ -2,7 +2,7 @@
   <form @input="submit">
     <div class="form-group">
       <label for="Email">Eメール</label>
-      <input type="text" class="form-control" v-model="Email" placeholder="Enter Email">
+      <input type="email" class="form-control" v-model="Email" placeholder="Enter Email">
     </div>
     <div class="form-group">
       <label for="tel">電話番号</label>
