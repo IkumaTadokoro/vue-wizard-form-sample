@@ -2,10 +2,13 @@
   <div class="d-flex">
     <div class="d-flex-big">
       <h1>Step: {{ stepNumber }}</h1>
-      <FirstStep v-if="stepNumber === 1" @update="updateForm"></FirstStep>
-      <ContactForm v-if="stepNumber === 2" @update="updateForm"></ContactForm>
-      <BirthdayForm v-if="stepNumber === 3" @update="updateForm"></BirthdayForm>
-      <Result v-if="stepNumber === 4" :form="form"></Result>
+
+      <keep-alive>
+        <FirstStep v-if="stepNumber === 1" @update="updateForm"></FirstStep>
+        <ContactForm v-if="stepNumber === 2" @update="updateForm"></ContactForm>
+        <BirthdayForm v-if="stepNumber === 3" @update="updateForm"></BirthdayForm>
+        <Result v-if="stepNumber === 4" :form="form"></Result>
+      </keep-alive>
 
       <div class="button-group">
         <button @click="backStep" v-show="stepNumber !== 1">まえの質問へ</button>
