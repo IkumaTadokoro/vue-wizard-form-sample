@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-<!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-    <FirstStep></FirstStep>
+    <Wizard></Wizard>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import FirstStep from '@/components/FirstStep'
+import Wizard from '@/components/Wizard'
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
-    FirstStep
+    Wizard
   }
 }
 </script>
