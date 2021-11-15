@@ -5,8 +5,9 @@
       <FirstStep v-if="stepNumber === 1" @update="updateForm"></FirstStep>
 
       <div class="button-group">
-        <button @click="backStep">まえの質問へ</button>
-        <button @click="nextStep">つぎの質問へ</button>
+        <button @click="backStep" v-show="stepNumber !== 1">まえの質問へ</button>
+        <button @click="nextStep" v-show="stepNumber !== 4">つぎの質問へ</button>
+        <button @click="showData" v-show="stepNumber === 4">計算結果へ</button>
       </div>
     </div>
 
@@ -42,12 +43,15 @@ export default {
       // [Object.assign()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
       Object.assign(this.form, formData)
     },
-    backStep:function(){
+    backStep() {
       this.stepNumber--;
     },
-    nextStep:function(){
+    nextStep() {
       this.stepNumber++;
     },
+    showData() {
+      alert(`入力結果：${Object.values(this.form).join(',')}`)
+    }
   }
 }
 </script>
