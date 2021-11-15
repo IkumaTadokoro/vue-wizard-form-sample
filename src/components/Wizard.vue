@@ -3,6 +3,11 @@
     <div class="d-flex-big">
       <h1>Step: {{ stepNumber }}</h1>
       <FirstStep v-if="stepNumber === 1" @update="updateForm"></FirstStep>
+
+      <div class="button-group">
+        <button @click="backStep">まえの質問へ</button>
+        <button @click="nextStep">つぎの質問へ</button>
+      </div>
     </div>
 
     <div class="d-flex-small">
@@ -36,7 +41,13 @@ export default {
     updateForm(formData) {
       // [Object.assign()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
       Object.assign(this.form, formData)
-    }
+    },
+    backStep:function(){
+      this.stepNumber--;
+    },
+    nextStep:function(){
+      this.stepNumber++;
+    },
   }
 }
 </script>
@@ -56,5 +67,10 @@ export default {
   border-left: 1px solid #2c3e50;
 }
 
+.button-group {
+  margin-top:20px;
+  display: flex;
+  justify-content: space-around;
+}
 
 </style>
