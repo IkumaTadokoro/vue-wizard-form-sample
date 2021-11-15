@@ -2,7 +2,7 @@
   <div class="d-flex">
     <div class="d-flex-big">
       <h1>Step: {{ stepNumber }}</h1>
-      <FirstStep v-if="stepNumber === 1"></FirstStep>
+      <FirstStep v-if="stepNumber === 1" @update="updateForm"></FirstStep>
     </div>
 
     <div class="d-flex-small">
@@ -30,6 +30,12 @@ export default {
         tel: null,
         birthday: null
       }
+    }
+  },
+  methods: {
+    updateForm(formData) {
+      // [Object.assign()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+      Object.assign(this.form, formData)
     }
   }
 }

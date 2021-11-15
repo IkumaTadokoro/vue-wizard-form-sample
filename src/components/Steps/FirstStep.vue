@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @input="submit">
     <h2>Name Info</h2>
     <div class="form-group">
       <label for="firstName">First Name</label>
@@ -19,6 +19,14 @@ export default {
     return {
       firstName: null,
       lastName: null
+    }
+  },
+  methods: {
+    submit() {
+      this.$emit('update', {
+        firstName: this.firstName,
+        lastName: this.lastName
+      })
     }
   }
 }
