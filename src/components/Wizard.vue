@@ -5,8 +5,14 @@
 
       <keep-alive>
         <FirstStep v-if="stepNumber === 1" @update="updateForm"></FirstStep>
+      </keep-alive>
+      <keep-alive>
         <ContactForm v-if="stepNumber === 2" @update="updateForm"></ContactForm>
+      </keep-alive>
+      <keep-alive>
         <BirthdayForm v-if="stepNumber === 3" @update="updateForm"></BirthdayForm>
+      </keep-alive>
+      <keep-alive>
         <Result v-if="stepNumber === 4" :form="form"></Result>
       </keep-alive>
 
